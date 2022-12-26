@@ -2,19 +2,16 @@ class collection{
     constructor(model){
         this.model=model;
     }
-    ////////////creat=insert///////////////////////////
     
     async create(obj) {
         try {
             const newRecord = await this.model.create(obj);
             return newRecord;
         } catch (e) {
-            console.log(e);
             console.error("error in creating a new record in model ", this.model)
     
         }
     }
-    /////////////read//////////////////////////
     async read ( id ) {
         try {
             if ( id ) {
@@ -27,7 +24,6 @@ class collection{
         }
     }
 
-    //////////////update///////////////////////
     async update(id,obj)
     {
     try{
@@ -39,17 +35,11 @@ class collection{
     
     }
     }
-    ///////////////delete/////////////////
-    async delete(id)
-    {
-        try{
-            const deleted=null;
-           deleted = await this.model.destroy({ where: { id: id} });
-    return deleted;
-        }
-        catch(error){
-            console.error("error while deleting  record in ",this.model)
-    
+    async delete ( id ) {
+        try {
+            return await this.model.destroy( { where: id } );
+        } catch ( e ) {
+            console.error( `Error while deleting the data with id: ${id}` );
         }
     }
     }
