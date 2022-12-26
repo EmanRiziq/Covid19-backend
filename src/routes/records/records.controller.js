@@ -4,14 +4,12 @@ const { json } = require("express/lib/response");
 const axios = require('axios');
 
 
-// const {recordCollection} = require("../models/index.js");
 const { recordCollection } = require("../../models/index");
 
 
 const getAll = async (req, res) => {
     try {
         const records = await recordCollection.read();
-        console.log(records)
         res.status(200).json(records);
     } catch (error) {
         res.status(500).send(error)
@@ -22,7 +20,6 @@ const getAll = async (req, res) => {
 const creatRecord = async (req, res) => {
     try {
         const newRecord = req.body;
-        console.log(newRecord)
         const addedRecord = await recordCollection.create(newRecord);
         res.status(201).json(addedRecord);
 
@@ -36,14 +33,15 @@ const deleteRecord = async (req, res) => {
     try {
         const id = req.params;
         const deletedRecord = await recordCollection.delete(id);
-        res.status(204);
+        res.status( 204 ).send( '' );
     } catch (error) {
         res.status(500).send(error)
     }
 };
 
+
+
 async function getTotalRecords(req, res) {
-    console.log('---------------------------------------------------------------')
     const url = 'https://api.covid19api.com/world/total'
     const response = await axios.get(url)
     try {
@@ -78,11 +76,10 @@ async function getCountryDataRecords(req, res) {
 
 
 async function getSummary(req, res) {
-    console.log('---------------------------------------------------------------')
     const url = 'https://api.covid19api.com/summary'
     const response = await axios.get(url)
     try {
-        res.send(response.data.Countries)
+        res.send(response.data)
     }
     catch (error) {
         res.status(400).send(error)
