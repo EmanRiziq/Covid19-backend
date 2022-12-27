@@ -1,7 +1,8 @@
 'use strict';
 
 const { Sequelize, DataTypes } = require('sequelize');
-const POSTGRES_URI = process.env.DATABASE_URL || "postgresql://localhost:5432/postgres";
+const POSTGRES_URI = process.env.DATABASE_URL 
+// || "postgresql://localhost:5432/postgres";
 
 const record = require('./schemas/records.model')
 const collection = require("./collection/collection");
