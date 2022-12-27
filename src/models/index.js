@@ -17,6 +17,7 @@ const sequelizeOption = {};
 //     }
 // };
 
+
 const sequelize = new Sequelize(POSTGRES_URI, sequelizeOption);
 
 const recordModel = record(sequelize, DataTypes);
