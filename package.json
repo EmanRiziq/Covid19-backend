@@ -12,5 +12,24 @@
     "pg": "^8.8.0",
     "postgres": "^3.3.2",
     "sequelize": "^6.28.0"
-  }
+  },
+  "name": "covid19-backend",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmanRiziq/Covid19-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmanRiziq/Covid19-backend/issues"
+  },
+  "homepage": "https://github.com/EmanRiziq/Covid19-backend#readme"
 }
